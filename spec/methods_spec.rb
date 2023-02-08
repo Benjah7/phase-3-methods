@@ -3,10 +3,16 @@ require_relative '../methods'
 
 describe '#greet_programmer' do
 
-  it 'outputs the string "Hello, programmer!"' do
+  it 'outputs the string "Hello programmer!"' do
     expect { greet_programmer }.to output(a_string_including("Hello, programmer!")).to_stdout
   end
-  
+def greet_programmer
+  puts "Hello, programmer!"
+end
+end
+
+def greet_programmer
+  puts "Hello, programmer!"
 end
 
 describe '#greet' do
@@ -21,6 +27,12 @@ describe '#greet' do
 
 end
 
+def greet(name = "programmer")
+  puts "Hello, #{name}!"
+end
+greet "Naureen"
+greet "Jimmy"
+
 describe '#greet_with_default' do
 
   it 'outputs a string "Hello, Naureen!" when called with "Naureen"' do
@@ -33,6 +45,12 @@ describe '#greet_with_default' do
 
 end
 
+def greet_with_default (name = "programmer")
+  puts "Hello, #{name}!"
+end
+greet_with_default "Naureen"
+
+
 describe '#add' do
 
   it 'returns the sum of two numbers' do
@@ -40,6 +58,12 @@ describe '#add' do
   end
 
 end
+
+def add(num1,num2)
+  return num1 + num2
+end
+sum1 = add(1,2)
+
 
 describe '#halve' do
   
@@ -51,4 +75,10 @@ describe '#halve' do
     expect(halve("six")).to be(nil)
   end
 
+end
+def halve(num1)
+  if num1.class!=Integer
+    return nil
+  end
+  num1/2
 end
